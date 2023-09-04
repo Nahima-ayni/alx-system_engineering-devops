@@ -1,2 +1,2 @@
 #!/bin/bash
-grep u*~ | sort
+getent passwd | cut -d ':' -f 1,6 --output-delimiter=' '
