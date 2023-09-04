@@ -1,2 +1,2 @@
 #!/bin/bash
-cat list.txt < wc -lw | sort | uniq
+sort line.txt | uniq -u`
