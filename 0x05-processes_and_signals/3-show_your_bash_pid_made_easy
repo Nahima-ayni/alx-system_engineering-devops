@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Get the list of PIDs for processes with 'bash' in their name
+
+pids=$(pgrep -fl bash)
+
+if [ -n "$pids" ]; then
+	echo "$pids" | awk '{print $1, $NF}'
+fi
