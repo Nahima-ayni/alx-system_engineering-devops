@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
 
-word = ARGV[0]
+require 'oniguruma'
 
+word = ARGV[0]
 regex = /School/
 if word =~ regex
   puts "School"
