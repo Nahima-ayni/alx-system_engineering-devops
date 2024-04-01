@@ -15,4 +15,7 @@ backend http_back
 EOF
 
 sudo haproxy -c -f /etc/haproxy/haproxy.cfg
+
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+
 sudo service haproxy restart
