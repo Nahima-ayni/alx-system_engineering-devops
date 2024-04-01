@@ -12,4 +12,5 @@ backend http_back
     server web-01 [STUDENT_ID]-web-01:80 check
     server web-02 [STUDENT_ID]-web-02:80 check
 
+sudo haproxy -c -f /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
