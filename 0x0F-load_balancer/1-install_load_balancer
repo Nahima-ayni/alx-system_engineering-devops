@@ -11,3 +11,5 @@ backend http_back
     balance roundrobin
     server web-01 [STUDENT_ID]-web-01:80 check
     server web-02 [STUDENT_ID]-web-02:80 check
+
+sudo service haproxy restart
