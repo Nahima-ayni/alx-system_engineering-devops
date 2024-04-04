@@ -47,4 +47,4 @@ frontend frontend-https
 backend www-backend
         balance roundrobin
         server 518459-web-01 54.84.53.57:80 check
-        server 518459-web-02 34.207.57.115:80 check 
+        server 518459-web-02 34.207.57.115:80 check  
