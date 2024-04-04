@@ -1,16 +1,23 @@
 #!/usr/bin/env bash
-# Configure your domain zone so that the subdomain www points to your load-balancer IP (lb-01)
+# Function to get record type and destination
 
-dns_config () {
-	script=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
-	echo "$2 $script" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
+get_record() {
+    local domain=$1
+    local subdomain=$2
+    local record
+    record=$(dig "$subdomain"."$domain" | awk '/^;; ANSWER SECTION:$/ { getline ; print $4, $5 }')
+    echo "The subdomain $subdomain is a ${record%% * } record and points to ${record##* }"
 }
 
-if [ "$#" == 1 ]; then
-  dns_config "$1" "www"
-  dns_config "$1" "lb-01"
-  dns_config "$1" "web-01"
-  dns_config "$1" "web-02"
-elif [ "$#" == 2 ]; then
-  dns_config "$1" "$2"
+if [ -z "$1" ]; then
+    echo "Please provide a domain."
+    exit 1
+fi
+
+if [ -n "$2" ]; then
+    get_record "$1" "$2"
+else
+    for subdomain in www lb-01 web-01 web-02; do
+        get_record "$1" "$subdomain"
+    done
 fi
