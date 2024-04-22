@@ -1,11 +1,12 @@
 #!/usr/bin/python3
+"""extend your Python script to export data in the JSON format."""
 
 import json
 import requests
 import sys
 
 
-def todo_list_progress():
+if __name__ == "__main__":
     users_res = requests.get('https://jsonplaceholder.typicode.com/users')
     todos_res = requests.get('https://jsonplaceholder.typicode.com/todos')
 
