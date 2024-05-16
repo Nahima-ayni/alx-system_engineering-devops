@@ -1,5 +1,3 @@
-Sure, here's a detailed beginner-friendly guide on the topics you mentioned:
-
 ## Application Server vs Web Server
 An application server and a web server both are servers used to host applications. However, they serve different purposes:
 
@@ -28,4 +26,3 @@ In Flask, the use of a trailing slash in the URL definition has significance. If
 
 ## Upstart Documentation
 Upstart is an event-based replacement for the traditional init daemon – the method by which several Unix-like computer operating systems perform tasks when the computer is started. It was written by Scott James Remnant, a former employee of Canonical Ltd¹⁶.
-
